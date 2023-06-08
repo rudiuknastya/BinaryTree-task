@@ -1,7 +1,10 @@
 package binaryTreeTask;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
-    TreeNode root = null;
+    private TreeNode root = null;
 
     private TreeNode recursiveInsertion(TreeNode currentNode, char data){
         if(currentNode == null){
@@ -18,5 +21,21 @@ public class BinaryTree {
     }
      public void insert (char data){
         root = recursiveInsertion(root, data);
+     }
+
+     public void bFS(){
+         Queue<TreeNode> nodes = new LinkedList<>();
+         nodes.add(root);
+         while(!nodes.isEmpty()){
+             TreeNode node = nodes.remove();
+             System.out.print(node.data + " ");
+             if(node.left != null){
+                 nodes.add(node.left);
+             }
+             if(node.right != null){
+                 nodes.add(node.right);
+             }
+         }
+
      }
 }
