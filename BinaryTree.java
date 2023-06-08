@@ -38,4 +38,16 @@ public class BinaryTree {
          }
 
      }
+
+     public void dFS(){
+        dFSRealisation(root);
+     }
+     private void dFSRealisation(TreeNode node){
+        if(node == null){
+            return;
+        }
+        System.out.print(node.data +" ");
+        dFSRealisation(node.left);
+        dFSRealisation(node.right);
+     }
 }
